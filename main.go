@@ -79,6 +79,11 @@ func (simpleHttp *SimpleHTTP) Post(url string, body io.Reader, respStruct interf
 	simpleHttp.DoRequest("POST", url, body, respStruct)
 }
 
+// Patch PATCH the resource specified by url and unmarshall the json response into respStruct
+func (simpleHttp *SimpleHTTP) Patch(url string, body io.Reader, respStruct interface{}) {
+	simpleHttp.DoRequest("PATCH", url, body, respStruct)
+}
+
 // ToReader creates an io.Reader from byteArr
 func ToReader(byteArr []byte) io.Reader {
 	return bytes.NewReader(byteArr)
